@@ -25,14 +25,30 @@ function Nav() {
     <>
       {isClicked ? (
         <div className="navitems">
-          <Link to="/" onClick={() => setIsClicked(prev => !prev)}>Home</Link>
-          <Link to="/about" onClick={() => setIsClicked(prev => !prev)}>About</Link>
-          <Link to="/gallery" onClick={() => setIsClicked(prev => !prev)}>Gallery</Link>
-          <Link to="/schedule" onClick={() => setIsClicked(prev => !prev)}>Schedule</Link>
-          <Link to="/blog" onClick={() => setIsClicked(prev => !prev)}>Blog</Link>
-          <Link to="/pricing" onClick={() => setIsClicked(prev => !prev)}>Pricing</Link>
-          <Link to="/classes" onClick={() => setIsClicked(prev => !prev)}>Classes</Link>
-          <Link to="/contact" onClick={() => setIsClicked(prev => !prev)}>Contact</Link>
+          <Link to="/" onClick={() => setIsClicked((prev) => !prev)}>
+            Home
+          </Link>
+          <Link to="/about" onClick={() => setIsClicked((prev) => !prev)}>
+            About
+          </Link>
+          <Link to="/gallery" onClick={() => setIsClicked((prev) => !prev)}>
+            Gallery
+          </Link>
+          <Link to="/schedule" onClick={() => setIsClicked((prev) => !prev)}>
+            Schedule
+          </Link>
+          <Link to="/blog" onClick={() => setIsClicked((prev) => !prev)}>
+            Blog
+          </Link>
+          <Link to="/pricing" onClick={() => setIsClicked((prev) => !prev)}>
+            Pricing
+          </Link>
+          <Link to="/classes" onClick={() => setIsClicked((prev) => !prev)}>
+            Classes
+          </Link>
+          <Link to="/contact" onClick={() => setIsClicked((prev) => !prev)}>
+            Contact
+          </Link>
         </div>
       ) : (
         <div className={isScrolled ? "nav" : "scroll"}>
@@ -45,7 +61,7 @@ function Nav() {
             <Link to="/gallery">Gallery</Link>
             <Link to="/schedule">Schedule</Link>
             <Link to="/blog">Blog</Link>
-            <Link to="/pricing" >Pricing</Link>
+            <Link to="/pricing">Pricing</Link>
             <Link to="/classes">Classes</Link>
             <Link to="/contact">Contact</Link>
           </div>
@@ -57,10 +73,10 @@ function Nav() {
               <AiOutlineUnorderedList />
             </a>
             <div className="item">
-              <a href="">
+              <Link to="/contact">
                 <button>+</button>
                 <h3>Join Class Now</h3>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

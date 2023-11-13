@@ -5,12 +5,18 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    @include mb {
+        width: 100%;
+    }
     .week {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 1rem;
       margin-bottom: 3rem;
+      @include mb {
+        flex-wrap: wrap;
+      }
       .day {
         padding: 9px 32px;
         color: black;
@@ -19,6 +25,10 @@
         font-size: 15px;
         font-weight: 700;
         cursor: pointer;
+        &.active {
+            background-color: var(--color-red);
+            color: white;
+        }
         &:hover {
           background-color: var(--color-red);
           color: white;
@@ -34,6 +44,12 @@
       height: 105px;
       align-items: center;
       text-align: center;
+      @include mb {
+        flex-direction: column;
+        height: auto;
+        padding: 2rem 0;
+        gap: 3rem;
+      }
       .item {
         display: flex;
         flex-direction: column;
