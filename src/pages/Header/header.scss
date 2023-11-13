@@ -1,0 +1,18 @@
+@import "../../styleSheet/styleSheet.scss";
+
+.header {
+  color: white;
+  background-image: url("../../images/login/banner.jpg");
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: flex-end;
+  background-size: cover;
+  height: 45vh;
+  .header-title {
+    font-size: 30px;
+    font-weight: 700;
+    margin: 2rem;
+  }
+}

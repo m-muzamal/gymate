@@ -1,0 +1,206 @@
+@import "../../styleSheet/styleSheet.scss";
+
+.navitems {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: absolute;
+  z-index: 50;
+  background: white;
+  width: 100vw;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  gap: 2rem;
+  a {
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    &:hover {
+      color: var(--color-red);
+    }
+  }
+}
+.nav {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 30px;
+  color: white;
+  background-color: black;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    z-index: 50;
+  .left {
+    border-radius: 4px;
+    padding: 0px 3px;
+  }
+  .center {
+    display: flex;
+    gap: 1.5rem;
+    a {
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      color: white;
+      cursor: pointer;
+      &:hover {
+        color: var(--color-red);
+      }
+    }
+    @include mb {
+      display: none;
+    }
+  }
+  .right {
+    align-items: center;
+    display: flex;
+    gap: 1.5rem;
+    a {
+      color: white;
+      svg {
+        font-size: 22px;
+        height: 25px;
+        width: 25px;
+        cursor: pointer;
+        &:hover {
+          color: var(--color-red);
+        }
+      }
+    }
+    .navlist {
+      display: none;
+      @include mb {
+        display: flex;
+      }
+    }
+    .item {
+      border-radius: 3px;
+      border: 2px solid var(--color-primary);
+      width: 215px;
+      @include mb {
+        display: none;
+      }
+      a {
+        display: flex;
+        margin: 5px;
+        align-items: center;
+        gap: 10px;
+        button {
+          height: 35px;
+          width: 33px;
+          border-radius: 3px;
+          color: white;
+          background-color: var(--color-red);
+          font-size: 15px;
+          font-weight: 700;
+          cursor: pointer;
+          &:hover {
+            rotate: 360deg;
+            transition: all 1s;
+          }
+        }
+        h3 {
+          font-size: 14px;
+          color: white;
+          text-transform: uppercase;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+.scroll {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 30px;
+  color: white;
+  background-color: transparent;
+  .left {
+    border-radius: 4px;
+    padding: 0px 3px;
+  }
+  .center {
+    display: flex;
+    gap: 1.5rem;
+    a {
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      color: white;
+      cursor: pointer;
+      &:hover {
+        color: var(--color-red);
+      }
+    }
+    @include mb {
+      display: none;
+    }
+  }
+  .right {
+    align-items: center;
+    display: flex;
+    gap: 1.5rem;
+    a {
+      color: white;
+      svg {
+        font-size: 22px;
+        height: 25px;
+        width: 25px;
+        cursor: pointer;
+        &:hover {
+          color: var(--color-red);
+        }
+      }
+    }
+    .navlist {
+      display: none;
+      @include mb {
+        display: flex;
+      }
+    }
+    .item {
+      border-radius: 3px;
+      border: 2px solid var(--color-primary);
+      width: 215px;
+      @include mb {
+        display: none;
+      }
+      a {
+        display: flex;
+        margin: 5px;
+        align-items: center;
+        gap: 10px;
+        button {
+          height: 35px;
+          width: 33px;
+          border-radius: 3px;
+          color: white;
+          background-color: var(--color-red);
+          font-size: 15px;
+          font-weight: 700;
+          cursor: pointer;
+          &:hover {
+            rotate: 360deg;
+            transition: all 1s;
+          }
+        }
+        h3 {
+          font-size: 14px;
+          color: white;
+          text-transform: uppercase;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}

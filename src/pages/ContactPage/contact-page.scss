@@ -1,0 +1,24 @@
+@import "../../styleSheet/styleSheet.scss";
+
+.contact-page {
+  background-image: url("../../images/call/background.jpg");
+  background-repeat: no-repeat;
+  .container {
+    padding: 70px 0;
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      color: white;
+      .call {
+        font-size: 28px;
+        font-weight: 700;
+      }
+      .btn {
+        width: fit-content;
+        z-index: 2;
+        margin-top: 1rem;
+      }
+    }
+  }
+}

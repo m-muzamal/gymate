@@ -1,0 +1,79 @@
+@import "../../styleSheet/styleSheet.scss";
+
+.classes {
+  background-image: url("../../images/pricing/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  .container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    @include mb {
+      width: 100%;
+    }
+    .img {
+      justify-content: flex-end;
+      height: 460px;
+      width: 376px;
+      overflow: hidden;
+      border-radius: 15px;
+      position: relative;
+      background-color: black;
+      img {
+        object-fit: cover;
+        opacity: 1;
+        height: 100%;
+        width: 100%;
+        filter: opacity(50%);
+      }
+      .content {
+        filter: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        color: white;
+        margin: 3rem;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        @include mb {
+          margin: 2rem;
+        }
+        .bold {
+          font-size: 27px;
+          font-weight: 700;
+          border-bottom: 4px solid var(--color-red);
+          width: fit-content;
+          padding-bottom: 0.5rem;
+        }
+        .detail {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          gap: 1rem;
+          color: rgba(255, 255, 255, 0.8);
+          .name {
+            font-size: 16px;
+            font-weight: 500;
+          }
+        }
+        .btn {
+          z-index: 1;
+          background-color: white;
+          border: 1px solid white;
+          color: black;
+          width: fit-content;
+          span {
+            color: red;
+            font-size: 16px;
+          }
+        }
+        .btn:after {
+          border: 1px solid white;
+        }
+      }
+    }
+  }
+}

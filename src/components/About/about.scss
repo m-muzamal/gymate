@@ -1,0 +1,134 @@
+@import "../../styleSheet/styleSheet.scss";
+
+.about {
+  background-image: url("../../images/who-we-are/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  .container {
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    @include mb {
+      width: 100%;
+    }
+    .about-item {
+      display: flex;
+      @include mb {
+        flex-direction: column;
+        width: 100%;
+      }
+      .left {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        gap: 2rem;
+        padding-right: 8rem;
+        @include mb {
+          text-align: center;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          padding: 0;
+        }
+        .imgtxt {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: fit-content;
+          @include mb {
+            width: 100%;
+          }
+          p {
+            color: white;
+            position: absolute;
+            font-size: 16px;
+            font-weight: 600;
+          }
+        }
+        .btn {
+          width: fit-content;
+        }
+      }
+      .right {
+        position: relative;
+        @include mb {
+          display: none;
+        }
+        .right-items {
+          display: flex;
+          position: relative;
+          flex-direction: row;
+          width: 50%;
+          @include mb {
+            display: none;
+            width: 100%;
+          }
+          .img {
+            z-index: 1;
+          }
+          .girl {
+            position: absolute;
+          }
+          .wind {
+            left: 22rem;
+            top: 16rem;
+            position: absolute;
+            height: 5rem;
+          }
+          .bg {
+            position: absolute;
+            z-index: 0;
+            left: 15rem;
+          }
+        }
+      }
+    }
+    .content {
+      display: flex;
+      margin: 5rem 0;
+      @include mb {
+        flex-direction: column;
+      }
+      .left-content {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        height: 860px;
+        @include mb {
+          width: 100%;
+        }
+        .detail {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 1rem;
+          background-color: white;
+          height: 50%;
+          img {
+            height: 90px;
+          }
+          .txt {
+            width: 65%;
+            text-align: center;
+          }
+        }
+        .pic {
+          height: 50%;
+          width: 100%;
+          overflow: hidden;
+          .picture {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+          }
+        }
+      }
+      .reverse {
+        @include mb {
+          flex-direction: column-reverse;
+        }
+      }
+    }
+  }
+}

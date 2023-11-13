@@ -1,0 +1,15 @@
+@import "../../styleSheet/styleSheet.scss";
+
+.pricing {
+  background-image: url("../../images/pricing/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  @include mb {
+    padding: 1.5rem;
+  }
+  .container {
+    margin: 0;
+    padding: 50px 0px;
+    width: 100%;
+  }
+}

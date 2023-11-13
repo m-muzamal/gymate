@@ -1,0 +1,119 @@
+@import "../../styleSheet/styleSheet.scss";
+
+.galleryPage {
+  position: relative;
+  .bg {
+    position: absolute;
+    right: 1rem;
+    top: 8rem;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
+    @include mb {
+      width: 100%;
+    }
+    .imgtext {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      p {
+        font-size: 16px;
+        font-weight: 600;
+        color: white;
+        position: absolute;
+      }
+    }
+    .txt {
+      width: 55%;
+      @include mb {
+        width: 100%;
+      }
+    }
+    .images {
+      display: flex;
+      flex-direction: row;
+      padding: 60px 0;
+      gap: 0.5rem;
+      height: 100vh;
+      @include mb {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+      }
+      .left {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 50%;
+        @include mb {
+          width: 100%;
+        }
+        .top {
+          height: 70%;
+          overflow: hidden;
+          @include mb {
+            height: fit-content;
+          }
+          img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .bottom {
+          display: flex;
+          gap: 0.5rem;
+          height: 30%;
+          overflow: hidden;
+          align-items: center;
+          @include mb {
+            flex-direction: column;
+            height: fit-content;
+          }
+          img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+      .right {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 50%;
+        @include mb {
+          width: 100%;
+        }
+        .right-top {
+          height: 30%;
+          overflow: hidden;
+          @include mb {
+            height: fit-content;
+          }
+          img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .right-bottom {
+          height: 70%;
+          overflow: hidden;
+          @include mb {
+            height: fit-content;
+          }
+          img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
