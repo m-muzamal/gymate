@@ -21,7 +21,7 @@ import {
 import { useNavigate } from "react-router-dom";
 
 function Classes() {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <>
       <Header title="Classes" />
@@ -40,7 +40,7 @@ function Classes() {
                   Sat:9:00 am
                 </p>
               </div>
-              <button onClick={() => navigate("/contact")}className="btn">
+              <button onClick={() => navigate("/pricing")} className="btn">
                 Join Now{" "}
                 <span>
                   <AiOutlineArrowRight />
@@ -61,7 +61,7 @@ function Classes() {
                   Fri:1:00 pm
                 </p>
               </div>
-              <button onClick={() => navigate("/contact")}className="btn">
+              <button onClick={() => navigate("/pricing")} className="btn">
                 Join Now{" "}
                 <span>
                   <AiOutlineArrowRight />
@@ -82,7 +82,7 @@ function Classes() {
                   Tue:4:00 pm
                 </p>
               </div>
-              <button onClick={() => navigate("/contact")}className="btn">
+              <button onClick={() => navigate("/pricing")} className="btn">
                 Join Now{" "}
                 <span>
                   <AiOutlineArrowRight />
@@ -103,7 +103,7 @@ function Classes() {
                   Sat:9:00 am
                 </p>
               </div>
-              <button onClick={() => navigate("/contact")}className="btn">
+              <button onClick={() => navigate("/pricing")} className="btn">
                 Join Now{" "}
                 <span>
                   <AiOutlineArrowRight />
@@ -124,7 +124,7 @@ function Classes() {
                   Wed:8:00 pm
                 </p>
               </div>
-              <button onClick={() => navigate("/contact")}className="btn">
+              <button onClick={() => navigate("/pricing")} className="btn">
                 Join Now{" "}
                 <span>
                   <AiOutlineArrowRight />
@@ -145,7 +145,7 @@ function Classes() {
                   Sun:10:00 am
                 </p>
               </div>
-              <button onClick={() => navigate("/contact")}className="btn">
+              <button onClick={() => navigate("/pricing")} className="btn">
                 Join Now{" "}
                 <span>
                   <AiOutlineArrowRight />
@@ -166,7 +166,7 @@ function Classes() {
                   Sun:10:00 am
                 </p>
               </div>
-              <button onClick={() => navigate("/contact")}className="btn">
+              <button onClick={() => navigate("/pricing")} className="btn">
                 Join Now{" "}
                 <span>
                   <AiOutlineArrowRight />
@@ -187,7 +187,7 @@ function Classes() {
                   Fri:6:00 am
                 </p>
               </div>
-              <button onClick={() => navigate("/contact")}className="btn">
+              <button onClick={() => navigate("/pricing")} className="btn">
                 Join Now{" "}
                 <span>
                   <AiOutlineArrowRight />
@@ -208,7 +208,7 @@ function Classes() {
                   Mon: 8:00 am
                 </p>
               </div>
-              <button onClick={() => navigate("/contact")}className="btn">
+              <button onClick={() => navigate("/pricing")} className="btn">
                 Join Now{" "}
                 <span>
                   <AiOutlineArrowRight />
@@ -229,7 +229,7 @@ function Classes() {
                   Fri: 9:00 am
                 </p>
               </div>
-              <button onClick={() => navigate("/contact")}className="btn">
+              <button onClick={() => navigate("/pricing")} className="btn">
                 Join Now{" "}
                 <span>
                   <AiOutlineArrowRight />
@@ -250,7 +250,7 @@ function Classes() {
                   Sun:9:00 am
                 </p>
               </div>
-              <button onClick={() => navigate("/contact")}className="btn">
+              <button onClick={() => navigate("/pricing")} className="btn">
                 Join Now{" "}
                 <span>
                   <AiOutlineArrowRight />
@@ -271,7 +271,7 @@ function Classes() {
                   Tue: 7:00 pm
                 </p>
               </div>
-              <button onClick={() => navigate("/contact")}className="btn">
+              <button onClick={() => navigate("/pricing")} className="btn">
                 Join Now{" "}
                 <span>
                   <AiOutlineArrowRight />

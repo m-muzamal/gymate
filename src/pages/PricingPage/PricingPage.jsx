@@ -7,7 +7,7 @@ import img3 from "../../images/pricing/img3.jpg";
 import { useNavigate } from "react-router-dom";
 
 function PricingPage() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <section className="pricing-page">
       <div className="container">
@@ -21,7 +21,6 @@ function PricingPage() {
           type specimen book.
         </p>
         <div className="content">
-
           <div className="card">
             <div className="img">
               <img src={img1} alt="" />
@@ -38,14 +37,16 @@ function PricingPage() {
               <p className="txt">Weight Loss</p>
               <p className="txt">Personal Trainer</p>
               <p className="txt">Cycling</p>
-              <button onClick={() => navigate("/contact")} className="btn">Purchase Now</button>
+              <button onClick={() => navigate("/contact")} className="btn">
+                Purchase Now
+              </button>
             </div>
           </div>
 
           <div className="card">
             <div className="img">
               <img src={img2} alt="" />
-              <p className="img-text">Beginners</p>
+              <p className="img-text">Intermediat</p>
             </div>
             <div className="items">
               <div className="price">
@@ -58,14 +59,16 @@ function PricingPage() {
               <p className="txt">Weight Loss</p>
               <p className="txt">Personal Trainer</p>
               <p className="txt">Cycling</p>
-              <button onClick={() => navigate("/contact")}className="btn">Purchase Now</button>
+              <button onClick={() => navigate("/contact")} className="btn">
+                Purchase Now
+              </button>
             </div>
           </div>
 
           <div className="card">
             <div className="img">
               <img src={img3} alt="" />
-              <p className="img-text">Beginners</p>
+              <p className="img-text">Pro</p>
             </div>
             <div className="items">
               <div className="price">
@@ -78,7 +81,9 @@ function PricingPage() {
               <p className="txt">Weight Loss</p>
               <p className="txt">Personal Trainer</p>
               <p className="txt">Cycling</p>
-              <button onClick={() => navigate("/contact")}className="btn">Purchase Now</button>
+              <button onClick={() => navigate("/contact")} className="btn">
+                Purchase Now
+              </button>
             </div>
           </div>
         </div>

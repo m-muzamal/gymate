@@ -10,6 +10,11 @@ import Blog from "./components/Blog/Blog";
 import Gallery from "./components/Gallery/Gallery";
 import About from "./components/About/About";
 import Schedule from "./components/Scheduale/Schedule";
+import Login from "./pages/Login/Login";
+import Profile from "./pages/Profile/Profile";
+import Register from "./pages/Register/Register";
+import Plane from "./components/Plane/Plane";
+import PlanPage from "./pages/PlanPage/PlanPage";
 
 function App() {
   return (
@@ -25,6 +30,11 @@ function App() {
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/classes" element={<Classes />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/profile/:id" element={<Profile />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/myPlan/:id" element={<Plane />} />
+          <Route path="/week/:id" element={<PlanPage />} />
         </Routes>
         <Footer />
       </Router>

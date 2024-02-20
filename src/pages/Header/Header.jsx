@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./header.scss";
 
 function Header({ title = "Header" }) {
-  window.scrollTo(0, 0);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <header className="header">
       <h1 className="header-title">{title}</h1>

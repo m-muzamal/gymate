@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 function Nav() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
+  const [islogin, setIsLogin] = useState(true);
 
   const handleScroll = () => {
     if (window.scrollY > 10) {
@@ -66,18 +67,22 @@ function Nav() {
             <Link to="/contact">Contact</Link>
           </div>
           <div className="right">
-            <a href="">
+            <Link to={islogin ? "/profile/5" : "/login"}>
               <AiOutlineUser />
-            </a>
+            </Link>
             <a className="navlist" href="#" onClick={() => setIsClicked(true)}>
               <AiOutlineUnorderedList />
             </a>
-            <div className="item">
-              <Link to="/contact">
-                <button>+</button>
-                <h3>Join Class Now</h3>
-              </Link>
-            </div>
+            {islogin ? (
+              <div className="item">
+                <Link to="/classes">
+                  <button>+</button>
+                  <h3>Join Class Now</h3>
+                </Link>
+              </div>
+            ) : (
+              <h3 className="name">Muzammal</h3>
+            )}
           </div>
         </div>
       )}

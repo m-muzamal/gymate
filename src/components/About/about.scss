@@ -8,11 +8,14 @@
     display: flex;
     gap: 2rem;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     @include mb {
       width: 100%;
     }
     .about-item {
       display: flex;
+      align-items: center;
       @include mb {
         flex-direction: column;
         width: 100%;

@@ -1,0 +1,65 @@
+@import "../../styleSheet/styleSheet.scss";
+.week {
+  background-image: url("../../images/who-we-are/background.jpg");
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      .week_titel {
+        margin-bottom: 3rem;
+      }
+
+      .items {
+        display: flex;
+        width: fit-content;
+        gap: 6rem;
+        align-items: center;
+        justify-content: center;
+        .title_item {
+          font-weight: bold;
+          color: black;
+          margin-bottom: 0.5rem;
+        }
+        .item {
+          font-size: 20px;
+          //   border: 1px solid red;
+          width: 9rem;
+          text-align: center;
+          justify-content: center;
+          text-wrap: nowrap;
+          &:nth-child(1) {
+            width: fit-content;
+            height: 1rem;
+            width: 1rem;
+            input {
+              height: 100%;
+              width: 100%;
+              font-size: 400px;
+              cursor: pointer;
+            }
+          }
+        }
+        .task_text {
+          display: flex;
+          color: white;
+        }
+      }
+      .task {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 90%;
+        // background-color: var(--color-primary-variant);
+        background-color: var(--color-primary);
+        margin-bottom: 1rem;
+        height: 5rem;
+      }
+    }
+  }
+}

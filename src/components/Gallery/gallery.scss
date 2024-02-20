@@ -5,9 +5,11 @@
   .container {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     gap: 1rem;
     @include mb {
-        width: 100%;
+      width: 100%;
     }
     .img {
       height: 394px;
