@@ -74,17 +74,17 @@ function AboutPage() {
                 <h3>FANCY GYM MACHINES</h3>
               </div>
             </div>
-            <button className="btn" onClick={() => navigate("./classes")}>
+            <button className="btn" onClick={() => navigate("./about")}>
               {" "}
               take a tour <BsArrowRightShort />
             </button>
           </div>
           <div className="right">
             <div className="right-items">
-                    <img className="img text" src={girlText} alt="" />
-                    <img className="img girl" src={girl} alt="" />
-                    <img className="img wind" src={wind} alt="" />
-                    <img className="bg" src={bg} alt="" />
+              <img className="img text" src={girlText} alt="" />
+              <img className="img girl" src={girl} alt="" />
+              <img className="img wind" src={wind} alt="" />
+              <img className="bg" src={bg} alt="" />
             </div>
           </div>
         </div>
