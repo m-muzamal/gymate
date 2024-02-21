@@ -73,7 +73,7 @@ function Nav() {
             <a className="navlist" href="#" onClick={() => setIsClicked(true)}>
               <AiOutlineUnorderedList />
             </a>
-            {islogin ? (
+            {!islogin ? (
               <div className="item">
                 <Link to="/classes">
                   <button>+</button>
@@ -81,7 +81,7 @@ function Nav() {
                 </Link>
               </div>
             ) : (
-              <h3 className="name">Muzammal</h3>
+              <h3 className="name">Muhammad Muzammal</h3>
             )}
           </div>
         </div>

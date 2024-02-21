@@ -7,18 +7,25 @@ import { TiStopwatch } from "react-icons/ti";
 import { LiaClipboardListSolid } from "react-icons/lia";
 import { FaCheckCircle } from "react-icons/fa";
 import { data } from "./data";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Plane = () => {
-  const navigate = useNavigate();
+  const [dummyData, setDummyData] = useState(data);
 
-  const [progress, setProgress] = useState();
-  const [isComplete, setIsComplete] = useState("");
-
-  const handleClick = (title) => {
-    localStorage.setItem("progress", 0);
-    navigate(`/week/${title}`);
+  const handleClick = (index) => {
+    setDummyData((prevData) => {
+      const updatedData = [...prevData];
+      updatedData[index] = {
+        ...updatedData[index],
+        value: false,
+        bgColor: "#4f4f4f",
+      };
+      console.log("after click", updatedData);
+      return updatedData;
+    });
   };
+
+  console.log("initial state", dummyData);
 
   return (
     <>
@@ -62,31 +69,34 @@ const Plane = () => {
             <h2>
               Week 1 and 2<span>Strength</span>
             </h2>
-            {data.map((data, index) => (
-              <div key={index} className="detail">
+            {dummyData.map((data, index) => (
+              <div
+                key={index}
+                style={{ backgroundColor: `${data.bgColor}` }}
+                className="detail"
+              >
                 <div className="left_detail">
                   <h3 className="bold-text">Day {index + 1}</h3>
                   <p className="txt plan_txt">{data.title}</p>
                 </div>
                 <div className="center_detail">
-                  {!isComplete ? (
-                    <>
-                      <p className="txt plan_txt">
-                        <span>
-                          <TiStopwatch />
-                        </span>
-                        {data.time}min
-                      </p>
-                      <p className="txt plan_txt">
-                        <span>
-                          <LiaClipboardListSolid />
-                        </span>
-                        {data.types}
-                      </p>
-                    </>
-                  ) : (
+                  <div className="before">
+                    <p className="txt plan_txt">
+                      <span>
+                        <TiStopwatch />
+                      </span>
+                      {data.time}min
+                    </p>
+                    <p className="txt plan_txt">
+                      <span>
+                        <LiaClipboardListSolid />
+                      </span>
+                      {data.types}
+                    </p>
+                  </div>
+                  {!data.value && (
                     <p className="complete">
-                      Completed
+                      Completed{" "}
                       <span>
                         <FaCheckCircle />
                       </span>
@@ -95,13 +105,14 @@ const Plane = () => {
                 </div>
                 <div className="right_detail">
                   <div className="data">
-                    <h3
-                      // to={`/week/${data.title}`}
+                    <Link
+                      onClick={() => handleClick(index)}
                       className="bold-text start"
-                      onClick={() => handleClick(data.title)}
+                      // to={`/week/${data.title}`}
+                      to={"/myPlan/5"}
                     >
                       Start
-                    </h3>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -109,31 +120,34 @@ const Plane = () => {
             <h2 className="span">
               Week 2 and 3<span>Hypertrophy</span>
             </h2>
-            {data.map((data, index) => (
-              <div key={index} className="detail">
+            {dummyData.map((data, index) => (
+              <div
+                key={index}
+                style={{ backgroundColor: `${data.bgColor}` }}
+                className="detail"
+              >
                 <div className="left_detail">
                   <h3 className="bold-text">Day {index + 1}</h3>
                   <p className="txt plan_txt">{data.title}</p>
                 </div>
                 <div className="center_detail">
-                  {!isComplete ? (
-                    <>
-                      <p className="txt plan_txt">
-                        <span>
-                          <TiStopwatch />
-                        </span>
-                        {data.time}min
-                      </p>
-                      <p className="txt plan_txt">
-                        <span>
-                          <LiaClipboardListSolid />
-                        </span>
-                        {data.types}
-                      </p>
-                    </>
-                  ) : (
+                  <div className="before">
+                    <p className="txt plan_txt">
+                      <span>
+                        <TiStopwatch />
+                      </span>
+                      {data.time}min
+                    </p>
+                    <p className="txt plan_txt">
+                      <span>
+                        <LiaClipboardListSolid />
+                      </span>
+                      {data.types}
+                    </p>
+                  </div>
+                  {!data.value && (
                     <p className="complete">
-                      Completed
+                      Completed{" "}
                       <span>
                         <FaCheckCircle />
                       </span>
@@ -145,6 +159,7 @@ const Plane = () => {
                     <Link
                       to={`/week/${data.title}`}
                       className="bold-text start"
+                      onClick={() => handleClick(index)}
                     >
                       Start
                     </Link>
@@ -152,10 +167,6 @@ const Plane = () => {
                 </div>
               </div>
             ))}
-            <div className="detail rest">
-              <h1 className="rest">Day 7</h1>
-              <h1 className="rest">REST</h1>
-            </div>
           </div>
         </div>
       </section>

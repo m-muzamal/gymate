@@ -44,7 +44,7 @@ const ApexRadialGraph = () => {
             offsetY: -20,
             show: true,
             color: "#888",
-            fontSize: "13px",
+            fontSize: "20px",
           },
           value: {
             formatter: function (val) {

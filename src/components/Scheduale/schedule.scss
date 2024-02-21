@@ -6,7 +6,7 @@
     flex-direction: column;
     gap: 0.5rem;
     @include mb {
-        width: 100%;
+      width: 100%;
     }
     .week {
       display: flex;
@@ -26,8 +26,8 @@
         font-weight: 700;
         cursor: pointer;
         &.active {
-            background-color: var(--color-red);
-            color: white;
+          background-color: var(--color-red);
+          color: white;
         }
         &:hover {
           background-color: var(--color-red);

@@ -9,7 +9,9 @@ import { dummy_data } from "./dummy_data";
 const PlanPage = () => {
   const title = useParams();
   const navigate = useNavigate();
-  const [dummyData, setDummyData] = useState(dummy_data);
+  const [dummyData, setDummyData] = useState(
+    dummy_data.filter((data) => data.day === title.id)
+  );
 
   const handleChange = (index) => {
     setDummyData((prevData) => {

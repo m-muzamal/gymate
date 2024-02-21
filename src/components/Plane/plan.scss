@@ -105,14 +105,20 @@
         }
         .center_detail {
           display: flex;
+          flex-direction: column;
           height: fit-content;
-          gap: 2rem;
+          gap: 1rem;
           justify-content: center;
+          align-items: center;
           width: 30%;
-          span {
-            margin: 0 0.5rem;
-            font-size: large;
-            height: fit-content;
+          .before {
+            display: flex;
+            gap: 2rem;
+            span {
+              margin: 0 0.5rem;
+              font-size: large;
+              height: fit-content;
+            }
           }
           .complete {
             display: flex;
