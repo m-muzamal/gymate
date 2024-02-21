@@ -6,10 +6,11 @@ import planeImg from "../../images/plane/plane.png";
 import { TiStopwatch } from "react-icons/ti";
 import { LiaClipboardListSolid } from "react-icons/lia";
 import { FaCheckCircle } from "react-icons/fa";
-import { data } from "./data";
+import { data as _data } from "./data";
 import { Link } from "react-router-dom";
 
 const Plane = () => {
+  const data = JSON.parse(localStorage.getItem("plan")) || _data;
   const [dummyData, setDummyData] = useState(data);
 
   const handleClick = (index) => {
@@ -20,6 +21,7 @@ const Plane = () => {
         value: false,
         bgColor: "#4f4f4f",
       };
+      localStorage.setItem("plan", JSON.stringify(updatedData));
       return updatedData;
     });
   };
@@ -105,8 +107,8 @@ const Plane = () => {
                     <Link
                       onClick={() => handleClick(index)}
                       className="bold-text start"
-                      // to={`/week/${data.title}`}
-                      to={"/myPlan/5"}
+                      to={`/week/${data.title}`}
+                      // to={"/myPlan/5"}
                     >
                       Start
                     </Link>

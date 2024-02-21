@@ -42,3 +42,5 @@ export const data = [
         value: true
     },
 ]
+
+localStorage.setItem("plan", JSON.stringify(data));
