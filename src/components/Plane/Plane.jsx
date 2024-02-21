@@ -20,12 +20,9 @@ const Plane = () => {
         value: false,
         bgColor: "#4f4f4f",
       };
-      console.log("after click", updatedData);
       return updatedData;
     });
   };
-
-  console.log("initial state", dummyData);
 
   return (
     <>
