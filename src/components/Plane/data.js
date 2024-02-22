@@ -22,7 +22,7 @@ export const data = [
     },
     {
         title: "Triceps & Abs",
-        types: 6,
+        types: 8,
         time: 60,
         bgColor: '',
         value: true

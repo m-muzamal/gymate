@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 function Nav() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
-  const [islogin, setIsLogin] = useState(true);
+
+  const isLogin = JSON.parse(localStorage.getItem("isLogin"));
 
   const handleScroll = () => {
     if (window.scrollY > 10) {
@@ -67,22 +68,18 @@ function Nav() {
             <Link to="/contact">Contact</Link>
           </div>
           <div className="right">
-            <Link to={islogin ? "/profile/5" : "/login"}>
+            <Link to={isLogin ? "/profile/5" : "/login"}>
               <AiOutlineUser />
             </Link>
             <a className="navlist" href="#" onClick={() => setIsClicked(true)}>
               <AiOutlineUnorderedList />
             </a>
-            {!islogin ? (
-              <div className="item">
-                <Link to="/classes">
-                  <button>+</button>
-                  <h3>Join Class Now</h3>
-                </Link>
-              </div>
-            ) : (
-              <h3 className="name">Muhammad Muzammal</h3>
-            )}
+            <div className="item">
+              <Link to="/classes">
+                <button>+</button>
+                <h3>Join Class Now</h3>
+              </Link>
+            </div>
           </div>
         </div>
       )}

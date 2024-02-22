@@ -7,6 +7,9 @@ import { FaCheckCircle } from "react-icons/fa";
 import { dummy_data } from "./dummy_data";
 
 const PlanPage = () => {
+  const [progress, setProgress] = useState(
+    JSON.parse(localStorage.getItem("progress") || 0)
+  );
   const title = useParams();
   const navigate = useNavigate();
   const [dummyData, setDummyData] = useState(
@@ -23,6 +26,9 @@ const PlanPage = () => {
       };
       return updatedData;
     });
+    setProgress((prev) => prev + 2);
+    console.log(progress);
+    localStorage.setItem("progress", JSON.stringify(progress));
   };
 
   useEffect(() => {

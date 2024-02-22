@@ -11,6 +11,8 @@ const Login = () => {
     password: "",
   });
 
+  const data = JSON.parse(sessionStorage.getItem("userData")) || false;
+
   const changeInputHandler = (e) => {
     setUserData((prevState) => {
       return { ...prevState, [e.target.name]: e.target.value };
@@ -25,8 +27,21 @@ const Login = () => {
         setError("");
       }, 2000);
       return;
-    } else {
-      alert("You are login successfully.");
+    } else if (
+      data.email !== userData.email &&
+      data.password !== userData.password
+    ) {
+      setError("Invalid email or password.");
+      setTimeout(() => {
+        setError("");
+      }, 2000);
+      return;
+    } else if (
+      data.email === userData.email &&
+      data.password === userData.password
+    ) {
+      localStorage.setItem("isLogin", true);
+      alert("You are logged in successfully.");
       navigate("/");
     }
   };

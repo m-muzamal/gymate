@@ -39,6 +39,7 @@ const Register = () => {
       }, 2000);
       return;
     } else {
+      sessionStorage.setItem("userData", JSON.stringify(userData));
       alert("You are registered successfully.");
       navigate("/login");
     }

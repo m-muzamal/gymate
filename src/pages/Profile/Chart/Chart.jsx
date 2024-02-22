@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Chart from "react-apexcharts";
 import "./chart.scss";
 
-const ApexRadialGraph = () => {
-  const [performance, serPerformance] = useState(60);
+const ApexRadialGraph = ({ progress }) => {
+  const [performance, serPerformance] = useState(progress);
   const [optionsRadial, setOptionsRadial] = useState({
     plotOptions: {
       radialBar: {

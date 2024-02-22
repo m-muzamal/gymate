@@ -8,6 +8,20 @@ import { useNavigate } from "react-router-dom";
 
 function PricingPage() {
   const navigate = useNavigate();
+  const isLogin = JSON.parse(localStorage.getItem("isLogin")) || false;
+
+  const handleClick = (plan) => {
+    if (isLogin) {
+      if (confirm(`Are you sure you want to purchase this ${plan} plan?`)) {
+        localStorage.setItem("booking", true);
+        localStorage.setItem("progress", 0);
+        alert("You have successfully purchase this plan.");
+      }
+    } else {
+      alert("You have to login first.");
+      navigate("/login");
+    }
+  };
   return (
     <section className="pricing-page">
       <div className="container">
@@ -37,7 +51,7 @@ function PricingPage() {
               <p className="txt">Weight Loss</p>
               <p className="txt">Personal Trainer</p>
               <p className="txt">Cycling</p>
-              <button onClick={() => navigate("/contact")} className="btn">
+              <button onClick={() => handleClick("Biggner")} className="btn">
                 Purchase Now
               </button>
             </div>
@@ -59,7 +73,10 @@ function PricingPage() {
               <p className="txt">Weight Loss</p>
               <p className="txt">Personal Trainer</p>
               <p className="txt">Cycling</p>
-              <button onClick={() => navigate("/contact")} className="btn">
+              <button
+                onClick={() => handleClick("Intermediat")}
+                className="btn"
+              >
                 Purchase Now
               </button>
             </div>
@@ -81,7 +98,7 @@ function PricingPage() {
               <p className="txt">Weight Loss</p>
               <p className="txt">Personal Trainer</p>
               <p className="txt">Cycling</p>
-              <button onClick={() => navigate("/contact")} className="btn">
+              <button onClick={() => handleClick("Pro")} className="btn">
                 Purchase Now
               </button>
             </div>

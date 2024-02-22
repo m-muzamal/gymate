@@ -5,13 +5,23 @@ import "./profile.scss";
 import { Link, useNavigate } from "react-router-dom";
 
 const Profile = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const progress = JSON.parse(localStorage.getItem("progress")) || 0;
+  const userData = JSON.parse(sessionStorage.getItem("userData")) || "";
+  const [name, setName] = useState(userData.name);
+  const [email, setEmail] = useState(userData.email);
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmNewPassword, setConfirmNewPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const booking = JSON.parse(localStorage.getItem("booking")) || false;
+
+  const [updateData, setUpdateData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confrimPassword: "",
+  });
 
   const id = 5;
 
@@ -35,9 +45,33 @@ const Profile = () => {
         setError("");
       }, 2000);
       return;
-    } else {
+    } else if (currentPassword === userData.password) {
+      setUpdateData({
+        name: name,
+        email: email,
+        password: newPassword,
+        confrimPassword: confirmNewPassword,
+      });
+      console.log(updateData);
       alert("Data update successfully.");
       navigate(`/profile/${id}`);
+    }
+  };
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    if (confirm("Are you sure you want to log out?")) {
+      localStorage.setItem("isLogin", false);
+      navigate("/");
+    }
+  };
+
+  const handlePlan = () => {
+    if (booking) {
+      navigate(`/myPlan/${id}`);
+    } else {
+      alert("You need to enroll your class first.");
+      navigate("/classes");
     }
   };
 
@@ -47,13 +81,13 @@ const Profile = () => {
       <section className="profile">
         <div className="container">
           <div className="profile_details">
-            <Link to={`/myPlan/${id}`} className="btn-primary">
+            <button onClick={handlePlan} className="btn-primary">
               My Plan
-            </Link>
+            </button>
             <div className="avatar_wrapper">
-              <Chart />
+              <Chart progress={progress} />
             </div>
-            <h1 className="title-black">Muhammad Muzammal</h1>
+            <h1 className="title-black">{userData.name}</h1>
             <form className="form profile_form">
               {error ? <p className="error profile-error">{error}</p> : ""}
               <input
@@ -92,6 +126,9 @@ const Profile = () => {
                 onClick={handleClick}
               >
                 Update details
+              </button>
+              <button className="btn-primary" onClick={handleLogout}>
+                Log Out
               </button>
             </form>
           </div>
