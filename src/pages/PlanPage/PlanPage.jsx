@@ -27,7 +27,6 @@ const PlanPage = () => {
       return updatedData;
     });
     setProgress((prev) => prev + 2);
-    console.log(progress);
     localStorage.setItem("progress", JSON.stringify(progress));
   };
 

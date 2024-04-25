@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import Chart from "./Chart/Chart";
 import "./profile.scss";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Profile = () => {
   const progress = JSON.parse(localStorage.getItem("progress")) || 0;
@@ -74,6 +75,22 @@ const Profile = () => {
       navigate("/classes");
     }
   };
+
+  useEffect(() => {
+    fetch("/gymate/update", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        idlogin: 1,
+        name: "John Doe",
+        email: "johndoe@example.com",
+        password: "newpassword",
+        date: "2023-03-01",
+      }),
+    });
+  }, []);
 
   return (
     <>

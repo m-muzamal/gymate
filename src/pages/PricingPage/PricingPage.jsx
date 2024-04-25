@@ -5,13 +5,14 @@ import img1 from "../../images/pricing/img1.jpg";
 import img2 from "../../images/pricing/img2.jpg";
 import img3 from "../../images/pricing/img3.jpg";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function PricingPage() {
   const navigate = useNavigate();
-  const isLogin = JSON.parse(localStorage.getItem("isLogin")) || false;
+  const isLoggedin = useSelector((state) => state.gym.value);
 
   const handleClick = (plan) => {
-    if (isLogin) {
+    if (isLoggedin) {
       if (confirm(`Are you sure you want to purchase this ${plan} plan?`)) {
         localStorage.setItem("booking", true);
         localStorage.setItem("progress", 0);

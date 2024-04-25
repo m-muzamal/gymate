@@ -49,7 +49,7 @@ function Schedule() {
                 <p className="bold">{classItem.trainer}</p>
               </div>
               <div className="item">
-                <p className="button" onClick={() => navigate("/contact")}>
+                <p className="button" onClick={() => navigate("/pricing")}>
                   Join Now
                 </p>
               </div>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./register.scss";
 import Header from "../Header/Header";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Register = () => {
   const [error, setError] = useState("");
@@ -39,8 +40,17 @@ const Register = () => {
       }, 2000);
       return;
     } else {
-      sessionStorage.setItem("userData", JSON.stringify(userData));
-      alert("You are registered successfully.");
+      axios
+        .post("http://localhost:3001/gymate/data", {
+          name: userData.name,
+          email: userData.email,
+          password: userData.password,
+        })
+        .then(() => {
+          alert("You registered yourself successfully.");
+        })
+        .catch((err) => console.error(err));
+      // sessionStorage.setItem("userData", JSON.stringify(userData));
       navigate("/login");
     }
   };

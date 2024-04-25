@@ -3,12 +3,13 @@ import "./nav.scss";
 import logo from "../../images/logo/logo.svg";
 import { AiOutlineUser, AiOutlineUnorderedList } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Nav() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
 
-  const isLogin = JSON.parse(localStorage.getItem("isLogin"));
+  const isLoggedin = useSelector((state) => state.gym.value);
 
   const handleScroll = () => {
     if (window.scrollY > 10) {
@@ -68,7 +69,7 @@ function Nav() {
             <Link to="/contact">Contact</Link>
           </div>
           <div className="right">
-            <Link to={isLogin ? "/profile/5" : "/login"}>
+            <Link to={isLoggedin ? "/profile/5" : "/login"}>
               <AiOutlineUser />
             </Link>
             <a className="navlist" href="#" onClick={() => setIsClicked(true)}>
