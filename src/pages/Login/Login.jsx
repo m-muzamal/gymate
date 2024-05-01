@@ -4,7 +4,6 @@ import "./login.scss";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { login } from "../../Redux/gymSlice/gymSlice";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -38,7 +37,7 @@ const Login = () => {
         password: userData.password,
       });
       if (res.data.success) {
-        dispatch(login());
+        localStorage.setItem("login", true);
         alert("You are logged in successfully.");
         navigate("/");
       } else {

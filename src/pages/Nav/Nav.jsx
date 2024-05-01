@@ -43,9 +43,6 @@ function Nav() {
           <Link to="/blog" onClick={() => setIsClicked((prev) => !prev)}>
             Blog
           </Link>
-          <Link to="/pricing" onClick={() => setIsClicked((prev) => !prev)}>
-            Pricing
-          </Link>
           <Link to="/classes" onClick={() => setIsClicked((prev) => !prev)}>
             Classes
           </Link>
@@ -64,7 +61,6 @@ function Nav() {
             <Link to="/gallery">Gallery</Link>
             <Link to="/schedule">Schedule</Link>
             <Link to="/blog">Blog</Link>
-            <Link to="/pricing">Pricing</Link>
             <Link to="/classes">Classes</Link>
             <Link to="/contact">Contact</Link>
           </div>

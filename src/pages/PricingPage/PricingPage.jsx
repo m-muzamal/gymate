@@ -1,28 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 import "./pricingPage.scss";
 import img from "../../images/bgImage/img.svg";
 import img1 from "../../images/pricing/img1.jpg";
 import img2 from "../../images/pricing/img2.jpg";
 import img3 from "../../images/pricing/img3.jpg";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { loadStripe } from "@stripe/stripe-js";
+import Loading from "../../components/Loading/Loading";
 
 function PricingPage() {
+  const login = JSON.parse(localStorage.getItem("login"));
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const isLoggedin = useSelector((state) => state.gym.value);
 
-  const handleClick = (plan) => {
-    if (isLoggedin) {
-      if (confirm(`Are you sure you want to purchase this ${plan} plan?`)) {
+  const handleClick = async (plan) => {
+    if (login) {
+      if (confirm(`Are you sure you want to purchase this plan?`)) {
         localStorage.setItem("booking", true);
         localStorage.setItem("progress", 0);
-        alert("You have successfully purchase this plan.");
+      }
+
+      const stripe = await loadStripe(
+        "pk_test_51PBRzCRp2oHR08OdLaGSRxkveyGPjY6orWl3cnCeUJGTUTMGPzwJyoGFAmxx4DaTxTRVdLQZbtteUveaKxBNdU4i00tiO1JVvJ"
+      );
+      setLoading(true);
+      const body = {
+        product: plan,
+      };
+
+      const headers = {
+        "Content-Type": "application/json",
+      };
+
+      const res = await fetch(
+        "http://localhost:3001/api/create-checkout-session",
+        {
+          method: "POST",
+          headers: headers,
+          body: JSON.stringify(body),
+        }
+      );
+
+      const session = await res.json();
+      const result = stripe.redirectToCheckout({
+        sessionId: session.id,
+      });
+      setLoading(false);
+      if (result.error) {
+        console.error(result.error);
       }
     } else {
       alert("You have to login first.");
       navigate("/login");
     }
   };
+
   return (
     <section className="pricing-page">
       <div className="container">
@@ -52,7 +84,10 @@ function PricingPage() {
               <p className="txt">Weight Loss</p>
               <p className="txt">Personal Trainer</p>
               <p className="txt">Cycling</p>
-              <button onClick={() => handleClick("Biggner")} className="btn">
+              <button
+                onClick={() => handleClick("price_1PBVL3Rp2oHR08OdREZPnLbs")}
+                className="btn"
+              >
                 Purchase Now
               </button>
             </div>
@@ -75,7 +110,7 @@ function PricingPage() {
               <p className="txt">Personal Trainer</p>
               <p className="txt">Cycling</p>
               <button
-                onClick={() => handleClick("Intermediat")}
+                onClick={() => handleClick("price_1PBVLeRp2oHR08OdsziFnltt")}
                 className="btn"
               >
                 Purchase Now
@@ -99,11 +134,15 @@ function PricingPage() {
               <p className="txt">Weight Loss</p>
               <p className="txt">Personal Trainer</p>
               <p className="txt">Cycling</p>
-              <button onClick={() => handleClick("Pro")} className="btn">
+              <button
+                onClick={() => handleClick("price_1PBVdPRp2oHR08OdTnJeqJoR")}
+                className="btn"
+              >
                 Purchase Now
               </button>
             </div>
           </div>
+          {loading && <Loading />}
         </div>
       </div>
     </section>

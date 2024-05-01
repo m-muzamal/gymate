@@ -10,7 +10,7 @@
     text-align: center;
     gap: 1rem;
     @include mb {
-        width: 100%;
+      width: 100%;
     }
     .imgText {
       display: flex;
@@ -27,53 +27,54 @@
       width: 40%;
       @include mb {
         width: 100%;
+      }
     }
-}
-.content {
-    display: flex;
-    margin: 50px 0;
-    gap: 1.5rem;
-    @include mb {
+    .content {
+      position: relative;
+      display: flex;
+      margin-top: 50px;
+      gap: 1.5rem;
+      @include mb {
         flex-direction: column;
         align-items: center;
         justify-content: center;
         width: 100%;
-    }
-    .card {
+      }
+      .card {
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-        0 8px 10px -6px rgba(0, 0, 0, 0.1);   
+          0 8px 10px -6px rgba(0, 0, 0, 0.1);
         @include mb {
-            width: 100%;
-            overflow: hidden;
+          width: 100%;
+          overflow: hidden;
         }
-      .img {
+        .img {
           position: relative;
           display: flex;
           align-items: center;
           flex-direction: column;
-        justify-content: flex-end;
-        color: black;
-        cursor: pointer;
-        filter: grayscale(100%);
-        transition: all 0s;
-        &:hover {
-          filter: grayscale(0);
-          color: var(--color-red);
-        }
-        .img-text {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
           justify-content: flex-end;
-          background-color: white;
-          font-size: 20px;
-          font-weight: 700;
-          position: absolute;
-          height: 60px;
-          width: 250px;
-          text-align: end;
+          color: black;
+          cursor: pointer;
+          filter: grayscale(100%);
+          transition: all 0s;
+          &:hover {
+            filter: grayscale(0);
+            color: var(--color-red);
+          }
+          .img-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            background-color: white;
+            font-size: 20px;
+            font-weight: 700;
+            position: absolute;
+            height: 60px;
+            width: 250px;
+            text-align: end;
+          }
         }
-      }
         .items {
           display: flex;
           flex-direction: column;

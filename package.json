@@ -10,11 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.3.3",
     "@reduxjs/toolkit": "^2.2.3",
+    "@stripe/stripe-js": "^3.3.0",
     "apexcharts": "^3.45.2",
     "axios": "^1.6.8",
     "cors": "^2.8.5",
     "dom": "^0.0.3",
+    "emailjs": "^4.0.3",
     "express": "^4.19.2",
     "icons": "^1.0.0",
     "mysql": "^2.18.1",
@@ -26,7 +29,8 @@
     "react-router": "^6.18.0",
     "react-router-dom": "^6.0.0",
     "react-scripts": "^5.0.1",
-    "sass": "^1.69.5"
+    "sass": "^1.69.5",
+    "stripe": "^15.4.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

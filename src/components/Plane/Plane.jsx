@@ -66,7 +66,7 @@ const Plane = () => {
           <div className="plan_detial">
             <h1 className="title-white">THE 4-WEEK OF WORKOUT</h1>
             <h2>
-              Week 1 and 2<span>Strength</span>
+              Week 1 to 4<span>Strength</span>
             </h2>
             {dummyData.map((data, index) => (
               <div
@@ -109,56 +109,6 @@ const Plane = () => {
                       className="bold-text start"
                       to={`/week/${data.title}`}
                       // to={"/myPlan/5"}
-                    >
-                      Start
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-            <h2 className="span">
-              Week 2 and 3<span>Hypertrophy</span>
-            </h2>
-            {dummyData.map((data, index) => (
-              <div
-                key={index}
-                style={{ backgroundColor: `${data.bgColor}` }}
-                className="detail"
-              >
-                <div className="left_detail">
-                  <h3 className="bold-text">Day {index + 1}</h3>
-                  <p className="txt plan_txt">{data.title}</p>
-                </div>
-                <div className="center_detail">
-                  <div className="before">
-                    <p className="txt plan_txt">
-                      <span>
-                        <TiStopwatch />
-                      </span>
-                      {data.time}min
-                    </p>
-                    <p className="txt plan_txt">
-                      <span>
-                        <LiaClipboardListSolid />
-                      </span>
-                      {data.types}
-                    </p>
-                  </div>
-                  {!data.value && (
-                    <p className="complete">
-                      Completed{" "}
-                      <span>
-                        <FaCheckCircle />
-                      </span>
-                    </p>
-                  )}
-                </div>
-                <div className="right_detail">
-                  <div className="data">
-                    <Link
-                      to={`/week/${data.title}`}
-                      className="bold-text start"
-                      onClick={() => handleClick(index)}
                     >
                       Start
                     </Link>

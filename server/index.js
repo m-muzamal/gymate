@@ -1,6 +1,8 @@
-import express from 'express'
-import cors from 'cors'
-import mysql from 'mysql'
+const express = require("express")
+const cors = require("cors")
+const mysql = require("mysql")
+const { Stripe } = require("stripe");
+const stripe = new Stripe("sk_test_51PBRzCRp2oHR08Od7gCz1DSbFvEy5wrq8dpdXs5Y7xog2WOnJc59k81r88zbcLUIfCxoueGBSkfQa6PL4Pzvrwfy00YrJrk4dO")
 
 const app = express()
 app.use(express.json())
@@ -12,6 +14,33 @@ const db = mysql.createConnection({
     password: 'password',
     database: 'gymate',
 });
+
+app.post("/api/create-checkout-session", async (req, res) => {
+
+    try {
+
+        const { product } = req.body;
+        console.log(product);
+
+        const sessions = await stripe.checkout.sessions.create({
+            line_items: [
+                {
+                    price: product,
+                    quantity: 1,
+                },
+            ],
+            mode: 'subscription',
+            success_url: 'http://localhost:5173/profile/5',
+            cancel_url: 'http://localhost:5173/pricing',
+        });
+
+        res.json({ id: sessions.id })
+    } catch (error) {
+        // console.dir({ error }, { depth: null })
+        console.log(error.message);
+        res.status(400).json({ message: error.message });
+    }
+})
 
 db.connect((err) => {
     if (err) {

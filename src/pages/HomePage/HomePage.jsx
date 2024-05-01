@@ -60,7 +60,6 @@ function HomePage() {
       <Testimonials />
       <GalleryPage />
       <BmiPage />
-      <PricingPage />
       <BlogePage />
       <Contact />
     </>
