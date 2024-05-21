@@ -3,16 +3,23 @@ import Header from "../Header/Header";
 import "./login.scss";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import UseFetch from "../../hooks/UseFetch";
 
 const Login = () => {
-  const dispatch = useDispatch();
+  const user = JSON.parse(sessionStorage.getItem("user")) || "";
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const [userData, setUserData] = useState({
     email: "",
     password: "",
   });
+
+  const data = UseFetch("http://localhost:3001/gymate/data");
+
+  const findUser = () => {
+    const person = data?.find((user) => user.email === userData.email);
+    sessionStorage.setItem("user", JSON.stringify(person));
+  };
 
   const changeInputHandler = (e) => {
     setUserData((prevState) => {
@@ -37,8 +44,13 @@ const Login = () => {
         password: userData.password,
       });
       if (res.data.success) {
-        localStorage.setItem("login", true);
+        sessionStorage.setItem("login", true);
         alert("You are logged in successfully.");
+        user?.email === userData.email
+          ? sessionStorage.setItem("booking", true)
+          : sessionStorage.setItem("booking", false) &&
+            localStorage.setItem("progress", 0);
+        findUser();
         navigate("/");
       } else {
         setError(res.data.message || "Invalid email or password.");

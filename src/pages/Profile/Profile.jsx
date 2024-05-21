@@ -3,11 +3,10 @@ import Header from "../Header/Header";
 import Chart from "./Chart/Chart";
 import "./profile.scss";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 const Profile = () => {
   const progress = JSON.parse(localStorage.getItem("progress")) || 0;
-  const userData = JSON.parse(sessionStorage.getItem("userData")) || "";
+  const userData = JSON.parse(sessionStorage.getItem("user")) || "";
   const [name, setName] = useState(userData.name);
   const [email, setEmail] = useState(userData.email);
   const [currentPassword, setCurrentPassword] = useState("");
@@ -62,7 +61,7 @@ const Profile = () => {
   const handleLogout = (e) => {
     e.preventDefault();
     if (confirm("Are you sure you want to log out?")) {
-      localStorage.setItem("isLogin", false);
+      sessionStorage.setItem("login", false);
       navigate("/");
     }
   };

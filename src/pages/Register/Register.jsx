@@ -50,7 +50,6 @@ const Register = () => {
           alert("You registered yourself successfully.");
         })
         .catch((err) => console.error(err));
-      // sessionStorage.setItem("userData", JSON.stringify(userData));
       navigate("/login");
     }
   };

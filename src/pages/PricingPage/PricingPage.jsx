@@ -9,21 +9,21 @@ import { loadStripe } from "@stripe/stripe-js";
 import Loading from "../../components/Loading/Loading";
 
 function PricingPage() {
-  const login = JSON.parse(localStorage.getItem("login"));
+  const login = JSON.parse(sessionStorage.getItem("login"));
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleClick = async (plan) => {
-    if (login) {
+    if (true) {
       if (confirm(`Are you sure you want to purchase this plan?`)) {
-        localStorage.setItem("booking", true);
+        sessionStorage.setItem("booking", true);
         localStorage.setItem("progress", 0);
       }
 
       const stripe = await loadStripe(
         "pk_test_51PBRzCRp2oHR08OdLaGSRxkveyGPjY6orWl3cnCeUJGTUTMGPzwJyoGFAmxx4DaTxTRVdLQZbtteUveaKxBNdU4i00tiO1JVvJ"
       );
-      setLoading(true);
+
       const body = {
         product: plan,
       };
@@ -45,13 +45,12 @@ function PricingPage() {
       const result = stripe.redirectToCheckout({
         sessionId: session.id,
       });
-      setLoading(false);
       if (result.error) {
         console.error(result.error);
       }
     } else {
       alert("You have to login first.");
-      navigate("/login");
+      navigate("/");
     }
   };
 

@@ -3,13 +3,12 @@ import "./nav.scss";
 import logo from "../../images/logo/logo.svg";
 import { AiOutlineUser, AiOutlineUnorderedList } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 function Nav() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
 
-  const isLoggedin = useSelector((state) => state.gym.value);
+  const isLoggedin = JSON.parse(sessionStorage.getItem("login"));
 
   const handleScroll = () => {
     if (window.scrollY > 10) {
